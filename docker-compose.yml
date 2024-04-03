@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  mongo:
+    image: mongo:4.2.5
+  app:
+    build: .
+    environment:
+      SPOTIFY_CLIENT_ID: ea45cba58d644ffe8919cc726437d4e1
+      SPOTIFY_CLIENT_SECRET: d81eb24e1dcc49a1a37353fa4ac0bd02
+      SPOTIFY_REDIRECT_URI: 'http://localhost:8080/spotify'
+      WAIT_HOSTS: mongo:27017
+    ports:
+      - '8080:8080'
